@@ -1,0 +1,723 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;800&family=Nunito+Sans:ital,opsz,wght@1,6..12,400;1,6..12,500&family=Prompt:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,500&family=Rubik+Glitch&display=swap');
+
+:root {
+    --mplus-rounded: 'M PLUS Rounded 1c', sans-serif;
+    --nunito-sans: 'Nunito Sans', sans-serif;
+    --prompt: 'Prompt', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+    --rubik-glitch: 'Rubik Glitch', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(1, 1, 1, 0.534);
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #ffff;
+    font-weight: 700;
+}
+
+.navegation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header .navegation ul li {
+    float: left;
+    position: relative;
+}
+
+.header .navegation ul li a {
+    font-size: 18px;
+    color: #ffff;
+    text-decoration: none;
+    padding: 38px;
+    display: block;
+    transition: all .2s ease;
+}
+
+.header .navegation ul li a:hover {
+    background-color: #685cfe;
+}
+
+.header .navegation ul li ul {
+    position: absolute;
+    right: 0;
+    width: 300px;
+    background-color: rgba(1, 1, 1, 0.7);
+    display: none;
+    overflow-y: auto;
+    /* Agregado para permitir el desplazamiento vertical */
+    max-height: 300px;
+    /* Ajusta según sea necesario */
+}
+
+.header .navegation ul li ul li a {
+    font-size: 15px;
+    text-transform: capitalize;
+    padding: 15px;
+    display: block;
+}
+
+.header .navegation ul li ul li ul {
+    position: absolute;
+    top: 0;
+    right: 300px;
+    width: 300px;
+    background-color: rgba(1, 1, 1, 0.7);
+}
+
+.header .navegation ul li ul li {
+    width: 100%;
+}
+
+.header .navegation ul li:hover>ul {
+    display: initial;
+}
+
+#toggle,
+.header label {
+    display: none;
+    cursor: pointer;
+}
+
+.menu {
+    width: 45px;
+    height: 35px;
+}
+
+/*TABLA DE FECHAS*/
+
+#section-noticias {
+    margin-top: 13%;
+}
+
+.festivo {
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+    font-family: var(--prompt);
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 79%;
+    margin-top: 2%;
+    margin-left: 9%;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/*SECTION NOTICIA DEL DIA*/
+.not-day {
+    margin-top: 2%;
+    position: relative;
+    margin-left: 8%;
+    width: 90%;
+    height: 60vh;
+}
+
+.not-day img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.not-day .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    /* Agregado para darle un efecto de sombra al texto */
+}
+
+.not-day .overlay p {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    font-family: var(--mplus-rounded);
+}
+
+.not-day,
+.not-day img,
+.overlay,
+.overlay p {
+    border-radius: 15px;
+}
+
+/*·3 NOTICIAS*/
+
+.notices {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(230, 221, 221);
+    margin-top: 15px;
+}
+
+.notices>div {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 15px;
+}
+
+.notices>div img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 8px 8px 8px 6px rgba(0, 0, 0, 0.2);
+    /*Agrega un sombreado sutil*/
+    border-radius: 15px;
+}
+
+.notices>.notice-one img {
+    height: 80%;
+}
+
+.notices>.notice-one p {
+    height: 80%;
+    border-radius: 15px;
+}
+
+.notices>.notice-three img {
+    height: 80%;
+}
+
+.notices>.notice-three p {
+    height: 80%;
+    border-radius: 15px;
+}
+
+.notices>div p {
+    position: absolute;
+    padding: 20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+    display: flex;
+    border-radius: 15px;
+}
+
+.notices>div:hover p {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*SECCION DE SPONSORS*/
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    background-color: #f3ecec;
+    /* Ajusta el color de fondo según tu diseño */
+}
+
+
+/*ARTICULOS*/
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centra horizontalmente en el eje X */
+    gap: 20px;
+    /* Espacio entre las columnas, ajusta según tus necesidades */
+    margin-top: 2%;
+}
+
+.article {
+    text-align: center;
+    width: 200px;
+    /* Ancho máximo de cada artículo, ajusta según tus necesidades */
+    margin: 0 60px;
+    /* Margen entre los artículos, ajusta según tus necesidades */
+}
+
+.articles .article p {
+    text-align: center;
+    justify-content: center;
+    font-family: var(--nunito-sans);
+}
+
+.article img {
+    width: 100%;
+    /* Haz que la imagen ocupe el 100% del ancho del contenedor */
+    max-width: 200px;
+    /* Establece un ancho máximo para la imagen */
+    height: auto;
+    /* Ajusta automáticamente la altura para mantener la proporción */
+    border-radius: 15px;
+    margin-bottom: 10px;
+    /* Espacio entre la imagen y el párrafo */
+}
+
+
+/*SECTION HISTORIA DEL CLUB*/
+.historia-club {
+    position: relative;
+    height: 100%;
+    background-image: url(/assets/img/cancha.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    margin-top: 6%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10%;
+}
+
+.historia {
+    background: rgba(255, 255, 255, 0.651);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    /* Establece un ancho máximo para evitar que el contenido se expanda demasiado en pantallas grandes */
+    width: 90%;
+    /* Ajusta según tus necesidades */
+    margin: 0 auto;
+    /* Centra el contenido en la pantalla */
+}
+
+#parrafo {
+    max-height: 150px;
+    /* Altura máxima inicial */
+    overflow: hidden;
+    /* Oculta el contenido que excede la altura máxima */
+    transition: max-height 0.5s ease;
+    /* Agrega una transición suave */
+}
+
+.parrafo-full {
+    max-height: none !important;
+    /* Muestra todo el contenido */
+}
+
+#ver-mas {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-decoration-line: underline;
+}
+
+.historia img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.historia h2 {
+    font-family: var(--mplus-rounded);
+}
+
+.historia p {
+    margin: 0;
+}
+
+/*SECTION DE CONTACTO*/
+.contacto {
+    background:
+        linear-gradient(90deg, rgba(76, 77, 77, 0.712) 0%, rgba(70, 70, 70, 0.622) 49%, rgba(0, 0, 0, 0.505) 79%),
+        url(/assets/img/PiletaClimatizada.jpg);
+    background-size: cover;
+    color: #fff;
+    padding: 70px 10px;
+}
+
+.contacto .contenedor-contacto {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.contacto h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.contacto .contenedor-contacto .fila {
+    display: flex;
+}
+
+.contacto .contenedor-contacto .fila .col {
+    width: 50%;
+}
+
+.contacto .contenedor-contacto .fila .col .info p {
+    color: #fff;
+}
+
+.contacto .contenedor-contacto .info {
+    margin-bottom: 30px;
+    border-left: 3px solid #8d8d8d;
+    padding-left: 8px;
+}
+
+/*FOOTER*/
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.footer h4 {
+    color: #fff;
+}
+
+/* Estilos para la sección de la información de contacto */
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+}
+
+/* Estilos para los enlaces rápidos */
+.footer ul.list-unstyled {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul.list-unstyled li {
+    margin-bottom: 10px;
+}
+
+.footer ul.list-unstyled a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer ul.list-unstyled a:hover {
+    color: #0099ff;
+}
+
+/* Estilos para las redes sociales */
+.footer-bottom .social-buttons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-bottom .social-buttons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-bottom .social-buttons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer-bottom .social-buttons a:hover {
+    color: #0099ff;
+}
+
+.fa-brands,
+.fab {
+    padding: 0 12px;
+}
+
+
+/*SECCION DE MEDIAQUERiES*/
+@media screen and (max-width: 767px) {
+
+    header {
+        width: 100%;
+    }
+
+    .notices {
+        grid-template-columns: 1fr;
+    }
+
+    .notices .notice-one img {
+        margin-top: 30%;
+    }
+
+    .notices .notice-one p {
+        margin-top: 30%;
+    }
+
+    .not-day {
+        margin-top: 10%;
+        position: relative;
+        margin-left: 5%;
+        width: 90%;
+        /* Ajuste al 90% para evitar el desbordamiento horizontal */
+        height: 60vh;
+    }
+
+    .not-day img {
+        width: 100%;
+        /* Cambiado a 100% para ocupar el ancho completo */
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .not-day .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Cambiado a 100% para cubrir completamente */
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .not-day .overlay p {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .articles {
+        grid-template-columns: 1fr;
+        margin-top: 10%;
+        margin-left: 8%;
+    }
+
+    .article {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .article img {
+        max-width: 100%;
+        /* Ajusta el ancho máximo al 100% en dispositivos móviles */
+    }
+
+    iframe {
+        width: 100%;
+    }
+
+    .historia-club {
+        height: 100%;
+    }
+
+    .historia {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+
+    .contacto .fila {
+        display: block !important;
+    }
+
+    .contacto .fila .col {
+        text-align: center;
+        width: 100% !important;
+    }
+
+    .contacto .fila .col .info {
+        float: none;
+        font-size: 12px;
+        width: 35%;
+        text-align: left;
+    }
+
+    .contacto .fila .col {
+        padding-left: 10%;
+    }
+
+    .location {
+        margin-top: 3%;
+        width: 80%;
+        height: 250px;
+        margin-left: 10%;
+    }
+
+    #section-noticias {
+        margin-top: 17%;
+    }
+}
+
+@media (max-width: 950px) {
+    .header label {
+        display: initial;
+    }
+
+    .header {
+        padding: 20px 10%;
+    }
+
+    .header .navegation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(1, 1, 1, 0.7);
+        display: none;
+        overflow-y: auto;
+        /* Agregado para permitir el desplazamiento vertical */
+        max-height: 300px;
+        /* Ajusta según sea necesario */
+    }
+
+    .header .navegation ul li {
+        width: 100%;
+    }
+
+    .header .navegation ul li a {
+        padding: 8px 30px 8px 10%;
+        text-align: center;
+    }
+
+    .header .navegation ul li ul {
+        position: relative;
+        width: 100%;
+        left: 0;
+        background-color: rgba(1, 1, 1, 0.7);
+    }
+
+    .header .navegation ul li ul li {
+        background-color: rgba(1, 1, 1, 0.7);
+    }
+
+    .header .navegation ul li ul li a {
+        margin-left: 50px;
+    }
+
+    .header .navegation ul li ul li ul {
+        position: relative;
+        width: 100%;
+        left: 0;
+    }
+
+    #toggle:checked~.navegation {
+        display: block;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .articles {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        /* Ajustar el espacio entre columnas según sea necesario */
+    }
+
+    .historia-club {
+        margin-top: 10%;
+        /* Ajusta según tus necesidades */
+    }
+
+    .historia {
+        padding: 15px;
+    }
+
+    .footer {
+        padding: 30px 0;
+    }
+
+    .footer h4 {
+        font-size: 18px;
+    }
+
+    .footer-bottom {
+        padding: 5px 0;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+
+    .footer ul.list-unstyled li {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-bottom .social-buttons {
+        text-align: center;
+    }
+
+    .footer-bottom .social-buttons li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo-ufc img {
+        width: 32px;
+        height: 32px;
+    }
+
+    #section-noticias {
+        margin-top: 26%;
+    }
+}
